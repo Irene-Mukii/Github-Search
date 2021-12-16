@@ -1,37 +1,41 @@
- 
 <div class="container">
-  <form class="d-flex">
-    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-    <button class="btn btn-outline-success" type="submit"><h6><b>GitHub SEARCH</b></h6></button>
+  <form class="d-flex form-inline" #GithubSearch='ngForm' (ngSubmit)= 'getUser()'>
+    <div class='form-group'>
+      <input class="form-control me-2 form " type="search" placeholder="Search" aria-label="Search" required
+        class='form-control' [(ngModel)]='githubUserQuery' id='name' name='name'>
+      <button class="btn btn-outline-success" type="submit">
+        <h6><b>GitHub SEARCH</b></h6>
+      </button>
+    </div>
   </form>
-
+  <!--Testing to see if we get any data-->
+<div class="card">
+  <h3 class='text-center'>Your findings will appear here!</h3>
   <div class='container'>
     <div class='row'>
-        <div class='col-6'>
-            <p>profile photo</p>
-        </div>    
-        <div class='col-6'>
-                <p>name</p>
-        </div>
+      <div class='col'>
+        <img src="{{githubProfile.avatar_url }}" alt="" height="200px" width="300px" />
+      </div>
+      <div class='col'>
+        <a href="{{githubProfile.login | json}}"> </a>
+        <h6></h6>
+      </div>
     </div>
     <div class='row'>
-        <div class='row'>
-          <blockquote class='blockquote text-center'>
-            <header class ='blockquote-header'>{{repository.name}}</header>
-            <p class ='mb-0'>{{repository.description}}</p>
-          </blockquote>
+      <div class='row' ngFor='let repository of repositorys'>
+        <blockquote class='blockquote text-center'>
+          <header class='blockquote-header'></header>
+          <p class='mb-0'></p>
+        </blockquote>
 
-        </div>
-        <div class='col-4'>
-            <p>Repo 1</p>
-        </div>
-        <div class='col-4'>
-            <p>Repo 2</p>
-        </div>
-        <div class='col-4'>
-            <p>Repo 3</p>
+      </div>
+      <div>
+        <div ng="name in names">
+            <ul><li>githubRepos |json</li></ul>
         </div>
     </div>
-
+    </div>
+   
+  </div>
 </div>
 </div>

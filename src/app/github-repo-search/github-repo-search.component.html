@@ -1,0 +1,29 @@
+<div class="container">
+    <form class="d-flex form-inline" #GithubSearch='ngForm' (ngSubmit)= 'getRepo()'>
+      <div class='form-group'>
+        <input class="form-control me-2 form " type="search" placeholder="Search" aria-label="Search" required
+          class='form-control' [(ngModel)]='githubUserQuery' id='name' name='name'>
+        <button class="btn btn-outline-success" type="submit">
+          <h6><b>SEARCH Repository</b></h6>
+        </button>
+      </div>
+    </form>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <header>Repository: {{githubRepos |json}}</header>
+            <hr>
+            <body>
+                
+            </body>
+            <footer>
+                Engineers name: 
+                <p>Views:   </p> 
+
+
+            </footer>
+        </div>
+    </div>
+    
+</div>
